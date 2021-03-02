@@ -84,8 +84,8 @@ func TestAddSpManagementTokenVisitor_RefreshedError(t *testing.T) {
 func TestGetClientSecretAuthorizer(t *testing.T) {
 	aa := AzureAuth{}
 	auth, err := aa.getClientSecretAuthorizer("x")
+	require.NoError(t, err, err.Error())
 	require.NotNil(t, auth)
-	require.NoError(t, err)
 
 	auth, err = aa.getClientSecretAuthorizer(AzureDatabricksResourceID)
 	require.Nil(t, auth)
